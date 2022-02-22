@@ -63,6 +63,10 @@ jobs:
       - run:
           name: minikube start
           command: |
+            sudo apt-get update
+            sudo apt-get install linux-tools-common linux-tools-generic linux-tools-`uname -r`
+            sudo perf stat docker version
+
             minikube version
             minikube start --driver=docker
       - run:
